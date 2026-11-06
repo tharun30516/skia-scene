@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>skia-scene editor</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <header>
+      <strong>skia-scene</strong>
+      <span class="muted">Skia (CanvasKit/WASM) · data-bound · AI-editable via MCP</span>
+      <div class="spacer"></div>
+      <label class="toggle"><input id="live" type="checkbox" checked /> Live data</label>
+      <label class="toggle"><input id="sync" type="checkbox" checked /> Sync with MCP</label>
+      <button id="png">Export PNG</button>
+    </header>
+    <main>
+      <aside class="tools">
+        <p class="label">Add</p>
+        <button data-add="gauge">Gauge</button>
+        <button data-add="bar">Bar</button>
+        <button data-add="sparkline">Sparkline</button>
+        <button data-add="rect">Rect</button>
+        <button data-add="circle">Circle</button>
+        <button data-add="text">Text</button>
+        <button data-add="line">Line</button>
+        <p class="label">Selected</p>
+        <button id="delete" disabled>Delete</button>
+        <p class="hint">Drag to move. Arrow keys nudge (Shift = 10px). Del removes.</p>
+        <p class="label">Perf</p>
+        <p id="fps" class="mono">–</p>
+      </aside>
+      <section class="stage"><canvas id="canvas"></canvas></section>
+      <aside class="json">
+        <p class="label">Scene JSON</p>
+        <textarea id="json" spellcheck="false"></textarea>
+        <div class="row"><button id="apply">Apply JSON</button><span id="err" class="err"></span></div>
+      </aside>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

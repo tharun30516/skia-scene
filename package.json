@@ -1,0 +1,19 @@
+{
+  "name": "skia-scene",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A JSON scene format for live, data-bound dashboards rendered with Skia (CanvasKit in the browser, SkiaSharp on .NET), with an MCP server so AI agents can build them.",
+  "type": "module",
+  "workspaces": ["packages/*", "apps/*"],
+  "scripts": {
+    "dev": "npm run dev -w @skia-scene/web",
+    "build": "npm run build -w @skia-scene/web",
+    "mcp": "npm start -w @skia-scene/mcp-server",
+    "test": "npm test -w @skia-scene/core",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0"
+  },
+  "license": "MIT"
+}

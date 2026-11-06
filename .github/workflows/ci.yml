@@ -1,0 +1,29 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  node:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run smoke -w @skia-scene/mcp-server -- smoke.png
+      - run: npm run build
+      - uses: actions/upload-artifact@v4
+        with: { name: smoke-render, path: apps/mcp-server/smoke.png }
+  dotnet:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with: { dotnet-version: 8.0.x }
+      - run: dotnet build server-dotnet/SkiaScene.Server -c Release
+      - name: Render the sample scene through the API
+        run: |
+          dotnet run --project server-dotnet/SkiaScene.Server -c Release --no-build --urls http://localhost:8080 &
+          for i in $(seq 1 30); do curl -sf localhost:8080/healthz && break; sleep 1; done
+          curl -sf -X POST localhost:8080/render -H 'content-type: application/json' --data @examples/pump-station.json -o render.png
+          file render.png | grep PNG

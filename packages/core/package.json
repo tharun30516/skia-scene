@@ -1,0 +1,11 @@
+{
+  "name": "@skia-scene/core",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Scene schema, data binding, layout and a CanvasKit (Skia) renderer.",
+  "main": "src/index.ts",
+  "exports": { ".": "./src/index.ts" },
+  "scripts": { "test": "node --import tsx --test test/*.test.ts" },
+  "dependencies": { "canvaskit-wasm": "^0.40.0", "zod": "^3.25.0" },
+  "devDependencies": { "tsx": "^4.19.0", "@types/node": "^22.0.0" }
+}

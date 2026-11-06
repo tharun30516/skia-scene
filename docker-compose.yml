@@ -1,0 +1,13 @@
+# Web editor (static) + stateless SkiaSharp render API.
+# Scale the renderer horizontally:  docker compose up --scale render=3
+services:
+  render:
+    build: { context: ., dockerfile: server-dotnet/Dockerfile }
+    expose: ["8080"]
+    deploy: { resources: { limits: { cpus: "1", memory: 512M } } }
+  web:
+    image: node:22-alpine
+    working_dir: /app
+    volumes: [".:/app"]
+    command: sh -c "npm ci && npm run build && cd apps/web && npx vite preview --host 0.0.0.0 --port 4173"
+    ports: ["4173:4173"]

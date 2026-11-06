@@ -1,0 +1,162 @@
+{
+  "version": 1,
+  "width": 960,
+  "height": 540,
+  "background": "#0f172a",
+  "nodes": [
+    {
+      "id": "title",
+      "x": 32,
+      "y": 52,
+      "rotation": 0,
+      "opacity": 1,
+      "type": "text",
+      "text": "Pump Station 4",
+      "size": 28,
+      "color": "#e2e8f0",
+      "weight": "semibold",
+      "align": "left"
+    },
+    {
+      "id": "p1",
+      "x": 129,
+      "y": 290,
+      "rotation": 0,
+      "opacity": 1,
+      "bind": "p1.value",
+      "type": "gauge",
+      "r": 80,
+      "value": 48,
+      "min": 0,
+      "max": 100,
+      "label": "Pressure",
+      "units": "%",
+      "color": "#22c55e",
+      "thresholds": [
+        {
+          "at": 70,
+          "color": "#f59e0b"
+        },
+        {
+          "at": 90,
+          "color": "#ef4444"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "x": 363,
+      "y": 290,
+      "rotation": 0,
+      "opacity": 1,
+      "bind": "p2.value",
+      "type": "gauge",
+      "r": 80,
+      "value": 76,
+      "min": 0,
+      "max": 100,
+      "label": "Flow",
+      "units": "%",
+      "color": "#22c55e",
+      "thresholds": [
+        {
+          "at": 70,
+          "color": "#f59e0b"
+        },
+        {
+          "at": 90,
+          "color": "#ef4444"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "x": 597,
+      "y": 290,
+      "rotation": 0,
+      "opacity": 1,
+      "bind": "p3.value",
+      "type": "gauge",
+      "r": 80,
+      "value": 93,
+      "min": 0,
+      "max": 100,
+      "label": "Temp",
+      "units": "%",
+      "color": "#22c55e",
+      "thresholds": [
+        {
+          "at": 70,
+          "color": "#f59e0b"
+        },
+        {
+          "at": 90,
+          "color": "#ef4444"
+        }
+      ]
+    },
+    {
+      "id": "tank",
+      "x": 803,
+      "y": 180,
+      "rotation": 0,
+      "opacity": 1,
+      "bind": "tank.level",
+      "type": "bar",
+      "w": 56,
+      "h": 220,
+      "value": 64,
+      "min": 0,
+      "max": 100,
+      "color": "#38bdf8",
+      "thresholds": [
+        {
+          "at": 85,
+          "color": "#ef4444"
+        }
+      ]
+    },
+    {
+      "id": "trend",
+      "x": 32,
+      "y": 440,
+      "rotation": 0,
+      "opacity": 1,
+      "type": "sparkline",
+      "w": 896,
+      "h": 70,
+      "values": [
+        40,
+        44,
+        43,
+        50,
+        58,
+        55,
+        61,
+        66,
+        63,
+        70,
+        74,
+        72,
+        79,
+        83,
+        80
+      ],
+      "maxPoints": 15,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "trendLabel",
+      "x": 32,
+      "y": 430,
+      "rotation": 0,
+      "opacity": 1,
+      "type": "text",
+      "text": "Pressure trend (last 15 min)",
+      "size": 13,
+      "color": "#94a3b8",
+      "weight": "regular",
+      "align": "left"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "@skia-scene/mcp-server",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "MCP server that lets an AI agent build and render Skia scenes.",
+  "bin": { "skia-scene-mcp": "src/index.ts" },
+  "scripts": { "start": "tsx src/index.ts", "smoke": "tsx src/smoke.ts" },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.20.0",
+    "@skia-scene/core": "*",
+    "canvaskit-wasm": "^0.40.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": { "tsx": "^4.19.0", "@types/node": "^22.0.0" }
+}
